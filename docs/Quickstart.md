@@ -71,7 +71,7 @@ kind: Provider
 metadata:
   name: provider-aws
 spec:
-  package: xpkg.upbound.io/upbound/provider-aws:v0.21.0
+  package: xpkg.upbound.io/upbound/provider-aws:v0.38.0
 EOF
 kubectl wait "providers.pkg.crossplane.io/provider-aws" --for=condition=Installed --timeout=180s
 kubectl wait "providers.pkg.crossplane.io/provider-aws" --for=condition=Healthy --timeout=180s
@@ -191,7 +191,7 @@ kind: Provider
 metadata:
   name: provider-aws
 spec:
-  package: xpkg.upbound.io/upbound/provider-aws:v0.18.0
+  package: xpkg.upbound.io/upbound/provider-aws:v0.38.0
 EOF
 ```
 

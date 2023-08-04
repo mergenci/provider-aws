@@ -56,7 +56,7 @@ Verify the configuration with `kubectl get providers`.
 ```shell
 $ kubectl get providers
 NAME           INSTALLED   HEALTHY   PACKAGE                                       AGE
-provider-aws   True        True      xpkg.upbound.io/upbound/provider-aws:v0.17.0  62s
+provider-aws   True        True      xpkg.upbound.io/upbound/provider-aws:v0.38.0  62s
 ```
 
 View the Crossplane [Provider CRD
