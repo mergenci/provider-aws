@@ -357,8 +357,8 @@ github.com/matttproud/golang_protobuf_extensions v1.0.4 h1:mmDVorXM7PCGKw94cs5zk
 github.com/matttproud/golang_protobuf_extensions v1.0.4/go.mod h1:BSXmuO+STAnVfrANrmjBb36TMTDstsz7MSK+HVaYKv4=
 github.com/mergenci/terraform-provider-aws v0.0.0-20231228201726-d0cf792bb860 h1:seSXvGrzTeGUzaRw4lgxyAon9uwpDZWM7//Z+tvOJAc=
 github.com/mergenci/terraform-provider-aws v0.0.0-20231228201726-d0cf792bb860/go.mod h1:VC/cWYvL0CQ2QApMzLWtf5xkbEmaabKO0Hoi49B62AE=
-github.com/mergenci/upjet v0.0.0-20240105215601-9fdf5eed0bac h1:hWv2YpRmkU8FtxP+weRYh1Zxh02VM1LrG0De7beIqck=
-github.com/mergenci/upjet v0.0.0-20240105215601-9fdf5eed0bac/go.mod h1:89JuLnTi8iNPqDrvve0j23RiG+7qr4d5eSjknDoSNtI=
+github.com/mergenci/upjet v0.0.0-20240108092735-719470dc0ba1 h1:rObdV0mahUhK2TkPUlAxawGjUHrgm/JpmREL0LODM6M=
+github.com/mergenci/upjet v0.0.0-20240108092735-719470dc0ba1/go.mod h1:89JuLnTi8iNPqDrvve0j23RiG+7qr4d5eSjknDoSNtI=
 github.com/mitchellh/copystructure v1.2.0 h1:vpKXTN4ewci03Vljg/q9QvCGUDttBOGBIa15WveJJGw=
 github.com/mitchellh/copystructure v1.2.0/go.mod h1:qLl+cE2AmVv+CoeAwDPye/v+N2HKCj9FbZEVFJRxO9s=
 github.com/mitchellh/go-homedir v1.1.0 h1:lukF9ziXFxDFPkA1vsr5zpc1XuPDn/wFntq5mG+4E0Y=
