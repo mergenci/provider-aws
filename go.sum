@@ -355,10 +355,10 @@ github.com/mattn/go-isatty v0.0.17 h1:BTarxUcIeDqL27Mc+vyvdWYSL28zpIhv3RoTdsLMPn
 github.com/mattn/go-isatty v0.0.17/go.mod h1:kYGgaQfpe5nmfYZH+SKPsOc2e4SrIfOl2e/yFXSvRLM=
 github.com/matttproud/golang_protobuf_extensions v1.0.4 h1:mmDVorXM7PCGKw94cs5zkfA9PSy5pEvNWRP0ET0TIVo=
 github.com/matttproud/golang_protobuf_extensions v1.0.4/go.mod h1:BSXmuO+STAnVfrANrmjBb36TMTDstsz7MSK+HVaYKv4=
-github.com/mergenci/terraform-provider-aws v0.0.0-20231228201726-d0cf792bb860 h1:seSXvGrzTeGUzaRw4lgxyAon9uwpDZWM7//Z+tvOJAc=
-github.com/mergenci/terraform-provider-aws v0.0.0-20231228201726-d0cf792bb860/go.mod h1:VC/cWYvL0CQ2QApMzLWtf5xkbEmaabKO0Hoi49B62AE=
-github.com/mergenci/upjet v0.0.0-20240108092735-719470dc0ba1 h1:rObdV0mahUhK2TkPUlAxawGjUHrgm/JpmREL0LODM6M=
-github.com/mergenci/upjet v0.0.0-20240108092735-719470dc0ba1/go.mod h1:89JuLnTi8iNPqDrvve0j23RiG+7qr4d5eSjknDoSNtI=
+github.com/mergenci/terraform-provider-aws v0.0.0-20240109114903-360a8d224c21 h1:Rbjz0auwdxeMEd4Zeduisp30aJlwn3WqDjHk6GW/TMU=
+github.com/mergenci/terraform-provider-aws v0.0.0-20240109114903-360a8d224c21/go.mod h1:VC/cWYvL0CQ2QApMzLWtf5xkbEmaabKO0Hoi49B62AE=
+github.com/mergenci/upjet v0.0.0-20240109115317-81472f05f663 h1:EBeaX6dg5Vkj4bBEfo2ciHtWX8wREg5EzPr8NbTbxzE=
+github.com/mergenci/upjet v0.0.0-20240109115317-81472f05f663/go.mod h1:89JuLnTi8iNPqDrvve0j23RiG+7qr4d5eSjknDoSNtI=
 github.com/mitchellh/copystructure v1.2.0 h1:vpKXTN4ewci03Vljg/q9QvCGUDttBOGBIa15WveJJGw=
 github.com/mitchellh/copystructure v1.2.0/go.mod h1:qLl+cE2AmVv+CoeAwDPye/v+N2HKCj9FbZEVFJRxO9s=
 github.com/mitchellh/go-homedir v1.1.0 h1:lukF9ziXFxDFPkA1vsr5zpc1XuPDn/wFntq5mG+4E0Y=
