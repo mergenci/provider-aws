@@ -469,6 +469,7 @@ github.com/matttproud/golang_protobuf_extensions v1.0.4 h1:mmDVorXM7PCGKw94cs5zk
 github.com/matttproud/golang_protobuf_extensions v1.0.4/go.mod h1:BSXmuO+STAnVfrANrmjBb36TMTDstsz7MSK+HVaYKv4=
 github.com/mergenci/upjet v0.0.0-20240130182513-67c38e9c47f9 h1:ADXkO9PYl5zfHy3NPuwYS612dGtqpAzoEbS0DMtkErw=
 github.com/mergenci/upjet v0.0.0-20240130182513-67c38e9c47f9/go.mod h1:0bHLtnejZ9bDeyXuBb9MSOQLvKo3+aoTeUBO8N0dGSA=
+github.com/mergenci/upjet v0.0.0-20240131115820-5dff491aeac2/go.mod h1:0bHLtnejZ9bDeyXuBb9MSOQLvKo3+aoTeUBO8N0dGSA=
 github.com/mitchellh/copystructure v1.2.0 h1:vpKXTN4ewci03Vljg/q9QvCGUDttBOGBIa15WveJJGw=
 github.com/mitchellh/copystructure v1.2.0/go.mod h1:qLl+cE2AmVv+CoeAwDPye/v+N2HKCj9FbZEVFJRxO9s=
 github.com/mitchellh/go-homedir v1.1.0 h1:lukF9ziXFxDFPkA1vsr5zpc1XuPDn/wFntq5mG+4E0Y=
