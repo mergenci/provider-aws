@@ -42,6 +42,8 @@ var TerraformPluginFrameworkExternalNameConfigs = map[string]config.ExternalName
 	// AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (:)
 	// terraform-plugin-framework
 	"aws_appconfig_environment": appConfigEnvironment(),
+
+	"aws_support_case": config.IdentifierFromProvider,
 }
 
 // NoForkExternalNameConfigs contains all external name configurations

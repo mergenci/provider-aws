@@ -892,6 +892,7 @@ import (
 	permissionsboundaryattachment "github.com/upbound/provider-aws/internal/controller/ssoadmin/permissionsboundaryattachment"
 	permissionset "github.com/upbound/provider-aws/internal/controller/ssoadmin/permissionset"
 	permissionsetinlinepolicy "github.com/upbound/provider-aws/internal/controller/ssoadmin/permissionsetinlinepolicy"
+	supportcase "github.com/upbound/provider-aws/internal/controller/support/supportcase"
 	domainswf "github.com/upbound/provider-aws/internal/controller/swf/domain"
 	databasetimestreamwrite "github.com/upbound/provider-aws/internal/controller/timestreamwrite/database"
 	tabletimestreamwrite "github.com/upbound/provider-aws/internal/controller/timestreamwrite/table"
@@ -1822,6 +1823,7 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		permissionsboundaryattachment.Setup,
 		permissionset.Setup,
 		permissionsetinlinepolicy.Setup,
+		supportcase.Setup,
 		domainswf.Setup,
 		databasetimestreamwrite.Setup,
 		tabletimestreamwrite.Setup,

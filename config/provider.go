@@ -103,6 +103,7 @@ import (
 	"github.com/upbound/provider-aws/config/sns"
 	"github.com/upbound/provider-aws/config/sqs"
 	"github.com/upbound/provider-aws/config/ssoadmin"
+	"github.com/upbound/provider-aws/config/support"
 	"github.com/upbound/provider-aws/config/transfer"
 	"github.com/upbound/provider-aws/hack"
 )
@@ -298,6 +299,7 @@ func GetProvider(ctx context.Context, generationProvider bool) (*config.Provider
 		ssoadmin.Configure,
 		identitystore.Configure,
 		iot.Configure,
+		support.Configure,
 	} {
 		configure(pc)
 	}
