@@ -49,6 +49,10 @@ func Configure(p *config.Provider) {
 			}
 			return conn, nil
 		}
+
+		r.LateInitializer = config.LateInitializer{
+			IgnoredFields: []string{"user"},
+		}
 	})
 
 	p.AddResourceConfigurator("aws_mq_user", func(r *config.Resource) {

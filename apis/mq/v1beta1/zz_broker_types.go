@@ -569,6 +569,10 @@ type UserInitParameters struct {
 	// +listType=set
 	Groups []*string `json:"groups,omitempty" tf:"groups,omitempty"`
 
+	// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+	// +kubebuilder:validation:Required
+	PasswordSecretRef v1.SecretKeySelector `json:"passwordSecretRef" tf:"-"`
+
 	// Whether to set set replication user. Defaults to false.
 	ReplicationUser *bool `json:"replicationUser,omitempty" tf:"replication_user,omitempty"`
 
