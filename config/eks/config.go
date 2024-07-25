@@ -5,15 +5,8 @@
 package eks
 
 import (
-	"encoding/json"
-
-	"github.com/crossplane/crossplane-runtime/pkg/meta"
-	"github.com/crossplane/crossplane-runtime/pkg/resource"
 	"github.com/crossplane/upjet/pkg/config"
-	"github.com/crossplane/upjet/pkg/config/conversion"
-	"github.com/pkg/errors"
 
-	"github.com/upbound/provider-aws/apis/eks/v1beta2"
 	"github.com/upbound/provider-aws/config/common"
 )
 
@@ -37,82 +30,82 @@ func Configure(p *config.Provider) {
 			},
 		}
 		r.UseAsync = true
-		r.Conversions = append(r.Conversions,
-			conversion.NewCustomConverter("v1beta1", "v1beta2", func(src, target resource.Managed) error {
-				annotations := src.GetAnnotations()
-				if annotations == nil {
-					return nil
-				}
+		// r.Conversions = append(r.Conversions,
+		// 	conversion.NewCustomConverter("v1beta1", "v1beta2", func(src, target resource.Managed) error {
+		// 		annotations := src.GetAnnotations()
+		// 		if annotations == nil {
+		// 			return nil
+		// 		}
 
-				fieldName := "bootstrapSelfManagedAddons"
-				annotationKey := "conversion.upjet.crossplane.io/" + fieldName
-				jsonString, ok := annotations[annotationKey]
-				if !ok {
-					return nil
-				}
+		// 		fieldName := "bootstrapSelfManagedAddons"
+		// 		annotationKey := "conversion.upjet.crossplane.io/" + fieldName
+		// 		jsonString, ok := annotations[annotationKey]
+		// 		if !ok {
+		// 			return nil
+		// 		}
 
-				var annotationValue struct {
-					ForProvider  *bool `json:"spec.forProvider,omitempty"`
-					InitProvider *bool `json:"spec.initProvider,omitempty"`
-					AtProvider   *bool `json:"status.atProvider,omitempty"`
-				}
-				if err := json.Unmarshal([]byte(jsonString), &annotationValue); err != nil {
-					return errors.Wrap(err, "cannot unmarshal annotation as JSON")
-				}
+		// 		var annotationValue struct {
+		// 			ForProvider  *bool `json:"spec.forProvider,omitempty"`
+		// 			InitProvider *bool `json:"spec.initProvider,omitempty"`
+		// 			AtProvider   *bool `json:"status.atProvider,omitempty"`
+		// 		}
+		// 		if err := json.Unmarshal([]byte(jsonString), &annotationValue); err != nil {
+		// 			return errors.Wrap(err, "cannot unmarshal annotation as JSON")
+		// 		}
 
-				targetTyped := target.(*v1beta2.Cluster)
-				if annotationValue.ForProvider != nil {
-					targetTyped.Spec.ForProvider.BootstrapSelfManagedAddons = annotationValue.ForProvider
-				}
-				if annotationValue.InitProvider != nil {
-					targetTyped.Spec.InitProvider.BootstrapSelfManagedAddons = annotationValue.InitProvider
-				}
-				if annotationValue.AtProvider != nil {
-					targetTyped.Status.AtProvider.BootstrapSelfManagedAddons = annotationValue.AtProvider
-				}
+		// 		targetTyped := target.(*v1beta2.Cluster)
+		// 		if annotationValue.ForProvider != nil {
+		// 			targetTyped.Spec.ForProvider.BootstrapSelfManagedAddons = annotationValue.ForProvider
+		// 		}
+		// 		if annotationValue.InitProvider != nil {
+		// 			targetTyped.Spec.InitProvider.BootstrapSelfManagedAddons = annotationValue.InitProvider
+		// 		}
+		// 		if annotationValue.AtProvider != nil {
+		// 			targetTyped.Status.AtProvider.BootstrapSelfManagedAddons = annotationValue.AtProvider
+		// 		}
 
-				// Removing the annotation is necessary. Consider that user
-				// deletes the field, but leaves the annotation intact.
-				// Converting back to storage version will preserve the
-				// annotation. When a non-storage version is requested,
-				// conversion function will find the annotation and will
-				// convert it to the field, which is supposed to be deleted.
-				meta.RemoveAnnotations(target, annotationKey)
+		// 		// Removing the annotation is necessary. Consider that user
+		// 		// deletes the field, but leaves the annotation intact.
+		// 		// Converting back to storage version will preserve the
+		// 		// annotation. When a non-storage version is requested,
+		// 		// conversion function will find the annotation and will
+		// 		// convert it to the field, which is supposed to be deleted.
+		// 		meta.RemoveAnnotations(target, annotationKey)
 
-				return nil
-			}),
-			conversion.NewCustomConverter("v1beta2", "v1beta1", func(src, target resource.Managed) error {
-				fieldName := "bootstrapSelfManagedAddons"
-				srcTyped := src.(*v1beta2.Cluster)
+		// 		return nil
+		// 	}),
+		// 	conversion.NewCustomConverter("v1beta2", "v1beta1", func(src, target resource.Managed) error {
+		// 		fieldName := "bootstrapSelfManagedAddons"
+		// 		srcTyped := src.(*v1beta2.Cluster)
 
-				annotation := make(map[string]any)
-				if srcTyped.Spec.ForProvider.BootstrapSelfManagedAddons != nil {
-					annotation["spec.forProvider"] = srcTyped.Spec.ForProvider.BootstrapSelfManagedAddons
-				}
-				if srcTyped.Spec.InitProvider.BootstrapSelfManagedAddons != nil {
-					annotation["spec.initProvider"] = srcTyped.Spec.InitProvider.BootstrapSelfManagedAddons
-				}
-				if srcTyped.Status.AtProvider.BootstrapSelfManagedAddons != nil {
-					annotation["status.atProvider"] = srcTyped.Status.AtProvider.BootstrapSelfManagedAddons
-				}
+		// 		annotation := make(map[string]any)
+		// 		if srcTyped.Spec.ForProvider.BootstrapSelfManagedAddons != nil {
+		// 			annotation["spec.forProvider"] = srcTyped.Spec.ForProvider.BootstrapSelfManagedAddons
+		// 		}
+		// 		if srcTyped.Spec.InitProvider.BootstrapSelfManagedAddons != nil {
+		// 			annotation["spec.initProvider"] = srcTyped.Spec.InitProvider.BootstrapSelfManagedAddons
+		// 		}
+		// 		if srcTyped.Status.AtProvider.BootstrapSelfManagedAddons != nil {
+		// 			annotation["status.atProvider"] = srcTyped.Status.AtProvider.BootstrapSelfManagedAddons
+		// 		}
 
-				if len(annotation) == 0 {
-					return nil
-				}
+		// 		if len(annotation) == 0 {
+		// 			return nil
+		// 		}
 
-				jsonBytes, err := json.Marshal(annotation)
-				if err != nil {
-					return errors.Wrap(err, "cannot marshal subnetConfiguration to JSON")
-				}
+		// 		jsonBytes, err := json.Marshal(annotation)
+		// 		if err != nil {
+		// 			return errors.Wrap(err, "cannot marshal subnetConfiguration to JSON")
+		// 		}
 
-				annotations := map[string]string{
-					"conversion.upjet.crossplane.io/" + fieldName: string(jsonBytes),
-				}
-				meta.AddAnnotations(target, annotations)
+		// 		annotations := map[string]string{
+		// 			"conversion.upjet.crossplane.io/" + fieldName: string(jsonBytes),
+		// 		}
+		// 		meta.AddAnnotations(target, annotations)
 
-				return nil
-			}),
-		)
+		// 		return nil
+		// 	}),
+		// )
 	})
 	p.AddResourceConfigurator("aws_eks_node_group", func(r *config.Resource) {
 		r.References["cluster_name"] = config.Reference{
