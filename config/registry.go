@@ -8,6 +8,7 @@ import (
 	"context"
 	_ "embed"
 	"fmt"
+	"os"
 	"regexp"
 	"strconv"
 	"strings"
@@ -108,6 +109,26 @@ func getProviderSchema(s string) (*schema.Provider, error) {
 	}, nil
 }
 
+// SingletonListLocator is a schema traverser for printing singleton lists fields
+// in the Terraform schema.
+type SingletonListLocator struct {
+	config.SingletonListEmbedder
+}
+
+func (l *SingletonListLocator) VisitResource(r *traverser.ResourceNode) error {
+	// this visitor only works on sets and lists with the MaxItems constraint
+	// of 1.
+	if r.Schema.Type != schema.TypeList && r.Schema.Type != schema.TypeSet {
+		return nil
+	}
+	if r.Schema.MaxItems != 1 {
+		return nil
+	}
+
+	fmt.Printf("%s\t%s\t%s\n", r.TFName, strings.Join(r.TFPath, "."), strings.Join(r.CRDPath, "."))
+	return nil
+}
+
 // GetProvider returns the provider configuration.
 // The `generationProvider` argument specifies whether the provider
 // configuration is being read for the code generation pipelines.
@@ -149,6 +170,7 @@ func GetProvider(ctx context.Context, generationProvider bool) (*config.Provider
 		config.WithTerraformProvider(sdkProvider),
 		config.WithTerraformPluginFrameworkProvider(fwProvider),
 		config.WithSchemaTraversers(&config.SingletonListEmbedder{}),
+		config.WithSchemaTraversers(&SingletonListLocator{}),
 		config.WithDefaultResourceOptions(
 			GroupKindOverrides(),
 			KindOverrides(),
@@ -163,6 +185,9 @@ func GetProvider(ctx context.Context, generationProvider bool) (*config.Provider
 			injectFieldRenamingConversionFunctions(),
 		),
 	)
+
+	os.Exit(0)
+
 	pc.BasePackages.ControllerMap["internal/controller/eks/clusterauth"] = "eks"
 
 	for _, configure := range ProviderConfiguration {
